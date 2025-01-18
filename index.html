@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blender作品集</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css">
+   <style>
+     html{
+      font-size: 100%;
+     }
+     *{ 
+      margin:0;
+        font-size: 0;
+     }
+     #top{
+        overflow: hidden;
+        position: relative;
+     }
+     #top h1{
+      font-size: 20vw;
+        position:absolute;
+        margin-top: 0vw;
+        top: 10vw;
+        left: 5%;
+        color: rgba(255, 255, 255, 0.7);
+       /* color: aquamarine;*/
+        z-index: 1;
+     }
+     #top img{
+        width: 100%;
+        object-fit: cover;
+     }
+     #top p{
+        font-size: 5vw;
+        font-weight: 900;
+        position:absolute;
+        top: 33vw;
+        left: 30%;
+       /* color: aquamarine;*/
+        color:rgba(255, 255, 255, 0.7);
+        z-index: 1;
+     }
+     #works{
+      background: #e6e6fa;
+      width: 100%;
+      overflow: hidden;
+     }
+     #works h2{ /* new */
+      font-size: 3vw;
+      position: relative;
+      width: 20%;
+      background: #ffc14b;
+      box-shadow: 0px 0px 0px 5px #ffc14b;
+      border: dashed 2px white;
+      text-align: center;
+      padding: 0.2em 0.5em;
+      margin:2% auto 3% 2%;
+      color: #ffffff;
+     }
+     #works h2:after{ /* new */
+      position: absolute;
+      content: '';
+      left: -7px;
+      top: -7px;
+      border-width: 0 0 30px 30px;
+      border-style: solid;
+      border-color: #e6e6fa #e6e6fa #f3b030;
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    }
+     .worksTumbs{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+     }
+     .tumb{
+      opacity: 0;
+      width:30% ;
+      margin: 0% 1.5% 5%;
+      padding:0% 0% 2%;
+      background: #ffffff;
+      box-shadow:20px 20px 10px #b8c5c2;
+      border-radius: 10px;
+     }
+     .tumb p{
+      font-size: 1.3rem;
+      padding:3%;
+     }
+     .tumb img{
+      border-radius: 10px 10px 0px 0px;
+     }
+    .profile {
+      background: #778899;
+      width: 100%;
+    }
+     .profile ul li{
+      padding: 2% 0% 1%;
+      font-size: 2vw;
+      color: #ffffff;
+      list-style: none;
+      text-align: left;
+     }
+     .profile ul li p,.profile ul li a{
+      font-size: 2vw;
+     }
+     /* アニメーション */
+     .fadeIn{
+      animation-name:FADEIN;
+      animation-delay: 0.5s;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+     }
+     @keyframes FADEIN{
+      0%{
+         opacity: 0;
+         transform: translateY(20px);
+         filter: blur(100%);
+      }
+      100%{
+         opacity: 1;
+         transform: translateY(0px);
+         filter: blur(0%);
+      }
+     }
+     /*横から出現*/
+     .fadeleft{
+      animation-name: fadeLeftAnime ;
+      animation-duration: 1.0s;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+     }  
+     @keyframes fadeLeftAnime{
+      0%{
+         opacity: 0;
+         transform: translateX(100px);
+      }
+      100%{
+         opacity: 1;
+         transform: translateX(0px)
+
+      }
+     }
+     .fadeup{
+      animation-name: fadeUpAnime;
+      animation-duration: 1.0s;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+     }  
+   @keyframes fadeUpAnime{
+      0%{
+         opacity: 0;
+         transform: translateY(100px);
+      }
+      100%{
+         opacity: 1;
+         transform: translateY(0);
+      }
+   }
+   /*レスポンシブ対応*/
+   @media(max-width:800px){
+      .worksTumbs{
+         margin-bottom: 5%;
+      }
+      #works h2{
+         font-size: 5vw;
+         width: 50%;
+         margin: 10% auto;
+      }
+      .tumb{
+         margin:5% auto;
+         width: 80%;
+      }
+      .tunb:first-child{
+         margin-top: 0%;
+      }
+      }
+   }
+    </style>
+</head>
+<body>
+   <div id="top">
+        <h1 class="fadeIn">Portfolio</h1>
+        <p class="fadeIn">kisa's works</p>
+        <img src="./img/bottle.png"width="100%"alt="トップ画像" >
+   </div>
+   <div id="works">
+      <h2>works</h2>
+      <div  class="worksTumbs delayScroll">
+      <div class="tumb">
+         <a href="./img/cup.png"  class="gallery" data-group="gallery">
+            <img  src="./img/cup.png"width="100%" alt="マグカップ">   
+         </a>
+          <p>初めて作った作品のマグカップです<br>取っ手を作るのがむずかしかったです</p>
+      </div>
+         <div class="tumb">
+            <a href="./img/hunberger.png"  class="gallery" data-group="gallery">
+               <img  src="./img/hunberger.png"width="100%" alt="ハンバーガー">
+            </a>
+            <p>2回目に作った作品のハンバーガーです<br>バンズを作るのがむずかしかったです</p>
+         </div>
+         <div class="tumb">
+            <a href="./img/tokyotower.png"  class="gallery" data-group="gallery">
+               <img  src="./img/tokyotower.png"width="100%" alt="東京タワー">
+            </a>
+            <p>3回目に作った作品のマグカップです<br>作るのがむずかしかったです</p>
+         </div>
+         <div class="tumb">
+            <a href="./img/bottle.png"  class="gallery" data-group="gallery">
+               <img  src="./img/bottle.png"width="100%" alt="ボトル">
+            </a>
+            <p>3回目に作った作品のマグカップです<br>作るのがむずかしかったです</p>
+         </div>
+         <div class="tumb">
+            <a href="./img/heartIcon.png"  class="gallery" data-group="gallery">
+               <img  src="./img/heartIcon.png"width="100%" alt="ハートアイコン">
+            </a>
+            <p>3回目に作った作品のマグカップです<br>作るのがむずかしかったです</p>
+         </div>
+         <div class="tumb">
+            <a href="./img/cashregister.png"  class="gallery" data-group="gallery">
+               <img  src="./img/cashregister.png"width="100%" alt="レジ">
+            </a>
+            <p>3回目に作った作品のマグカップです<br>作るのがむずかしかったです</p>
+         </div>
+         <div class="tumb">
+            <a href="./img/desklight.png"  class="gallery" data-group="gallery">
+               <img  src="./img/desklight.png"width="100%" alt="デスクライト">
+            </a>
+            <p>3回目に作った作品のマグカップです<br>作るのがむずかしかったです</p>
+         </div>
+      </div>
+   </div>
+   <div class="profile">
+      <ul class="prf-list">
+         <li>
+            <p>製作者：きさ</p>
+         </li>
+         <li>
+          <p>
+            blender初心者 <br>
+            小物をモデリングしています<br>
+            <a href="https://www.youtube.com/c/Mdesign_blender">参考サイト</a>
+          </p>  
+           </li>
+         <li></li>
+
+      </ul>
+   </div>
+   <!-- スクリプト -->
+   <script>
+      function delayScrollAnime() {
+          var time = 0.2;//遅延時間を増やす秒数の値
+          var value = time;
+          $('.delayScroll').each(function () {
+            var parent = this;					//親要素を取得
+            var elemPos = $(this).offset().top;//要素の位置まで来たら
+            var scroll = $(window).scrollTop();//スクロール値を取得
+            var windowHeight = $(window).height();//画面の高さを取得
+            var childs = $(this).children();	//子要素を取得
+  
+            if (scroll >= elemPos - windowHeight && !$(parent).hasClass("play")) {//指定領域内にスクロールが入ったらまた親要素にクラスplayがなければ
+              $(childs).each(function () {
+  
+                if (!$(this).hasClass("fadeleft")) {//アニメーションのクラス名が指定されているかどうかをチェック
+  
+                  $(parent).addClass("play");	//親要素にクラス名playを追加
+                  $(this).css("animation-delay", value + "s");//アニメーション遅延のCSS animation-delayを追加し
+                  $(this).addClass("fadeleft");//アニメーションのクラス名を追加
+                  value = value + time;//delay時間を増加させる
+  
+                  //全ての処理を終わったらplayを外す
+                  var index = $(childs).index(this);
+                  if ((childs.length - 1) == index) {
+                    $(parent).removeClass("play");
+                  }
+                }
+              })
+            } else {
+              $(childs).removeClass("fadeleft");//アニメーションのクラス名を削除
+              value = time;//delay初期値の数値に戻す
+            }
+          })
+        }
+  
+        // 画面をスクロールをしたら動かしたい場合の記述
+        $(window).scroll(function () {
+          delayScrollAnime();/* アニメーション用の関数を呼ぶ*/
+        });// ここまで画面をスクロールをしたら動かしたい場合の記述
+  
+        // 画面が読み込まれたらすぐに動かしたい場合の記述
+        $(window).on('load', function () {
+          delayScrollAnime();/* アニメーション用の関数を呼ぶ*/
+        });// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js"></script>
+    <script>
+      //画像のモーダル//
+      $(".gallery").modaal({
+         type:'image',
+         overlay_close:true,
+         before_open:function(){
+            $('html').css('overflow-y','hidden');
+         },
+         after_close:function(){
+            $('html').css('overflow-y','scroll'); 
+         }
+      });
+    </script>
+ </body>
+</html>
