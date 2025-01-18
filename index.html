@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,9 @@
    <style>
      html{
       font-size: 100%;
+      font-family: YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
      }
-     *{ 
+     *{
       margin:0;
         font-size: 0;
      }
@@ -23,7 +24,7 @@
         position:absolute;
         margin-top: 0vw;
         top: 10vw;
-        left: 5%;
+        left: 5vw;
         color: rgba(255, 255, 255, 0.7);
        /* color: aquamarine;*/
         z-index: 1;
@@ -37,7 +38,7 @@
         font-weight: 900;
         position:absolute;
         top: 33vw;
-        left: 30%;
+        left: 30vw;
        /* color: aquamarine;*/
         color:rgba(255, 255, 255, 0.7);
         z-index: 1;
@@ -132,7 +133,7 @@
       animation-delay: 0.5s;
       animation-fill-mode: forwards;
       opacity: 0;
-     }  
+     }
      @keyframes fadeLeftAnime{
       0%{
          opacity: 0;
@@ -150,7 +151,7 @@
       animation-delay: 0.5s;
       animation-fill-mode: forwards;
       opacity: 0;
-     }  
+     }
    @keyframes fadeUpAnime{
       0%{
          opacity: 0;
@@ -178,14 +179,86 @@
       .tunb:first-child{
          margin-top: 0%;
       }
+      .scrolldown2{
+         display: none;
       }
    }
+   /*スクロールダウン*/
+   /*スクロールダウン全体の場所*/
+.scrolldown2{
+    /*描画位置※位置は適宜調整してください*/
+	position:absolute;
+	bottom:10vw;
+	left:50%;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown2 span{
+    /*描画位置*/
+	position: absolute;
+	left:10px;
+	bottom:10px;
+    /*テキストの形状*/
+	color: #eee;
+	font-size: 0.7rem;
+	letter-spacing: 0.05em;
+	/*縦書き設定*/
+	-ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+}
+
+/* 丸の描写 */
+.scrolldown2:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom:0;
+    left:-4px;
+    /*丸の形状*/
+	width:10px;
+	height:10px;
+	border-radius: 50%;
+	background:#eee;
+    /*丸の動き1.6秒かけて透過し、永遠にループ*/
+	animation:
+		circlemove 1.6s ease-in-out infinite,
+		cirlemovehide 1.6s ease-out infinite;
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove{
+      0%{bottom:45px;}
+     100%{bottom:-5px;}
+ }
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide{
+      0%{opacity:0}
+     50%{opacity:1;}
+    80%{opacity:0.9;}
+	100%{opacity:0;}
+ }
+
+/* 線の描写 */
+.scrolldown2:after{
+	content:"";
+    /*描画位置*/
+	position: absolute;
+	bottom:0;
+	left:0;
+    /*線の形状*/
+	width:2px;
+	height: 50px;
+	background:#eee;
+}
     </style>
 </head>
 <body>
    <div id="top">
         <h1 class="fadeIn">Portfolio</h1>
         <p class="fadeIn">kisa's works</p>
+        <div class="scrolldown2"><span>Scroll</span></div>
         <img src="./img/bottle.png"width="100%"alt="トップ画像" >
    </div>
    <div id="works">
@@ -193,7 +266,7 @@
       <div  class="worksTumbs delayScroll">
       <div class="tumb">
          <a href="./img/cup.png"  class="gallery" data-group="gallery">
-            <img  src="./img/cup.png"width="100%" alt="マグカップ">   
+            <img  src="./img/cup.png"width="100%" alt="マグカップ">
          </a>
           <p>初めて作った作品のマグカップです<br>取っ手を作るのがむずかしかったです</p>
       </div>
@@ -201,37 +274,37 @@
             <a href="./img/hunberger.png"  class="gallery" data-group="gallery">
                <img  src="./img/hunberger.png"width="100%" alt="ハンバーガー">
             </a>
-            <p>2回目に作った作品のハンバーガーです<br>バンズを作るのがむずかしかったです</p>
+            <p>2回目に作った作品のハンバーガーです<br>バンズが消えてしまって大変でした</p>
          </div>
          <div class="tumb">
             <a href="./img/tokyotower.png"  class="gallery" data-group="gallery">
                <img  src="./img/tokyotower.png"width="100%" alt="東京タワー">
             </a>
-            <p>3回目に作った作品のマグカップです<br>作るのがむずかしかったです</p>
+            <p>3回目に作った作品の東京タワーです<br></p>東京タワーの足を作るのがむずかしかったです
          </div>
          <div class="tumb">
             <a href="./img/bottle.png"  class="gallery" data-group="gallery">
                <img  src="./img/bottle.png"width="100%" alt="ボトル">
             </a>
-            <p>3回目に作った作品のマグカップです<br>作るのがむずかしかったです</p>
+            <p>４回目に作った作品のボトルですです<br>傾きの角度をこだわりました</p>
          </div>
          <div class="tumb">
             <a href="./img/heartIcon.png"  class="gallery" data-group="gallery">
                <img  src="./img/heartIcon.png"width="100%" alt="ハートアイコン">
             </a>
-            <p>3回目に作った作品のマグカップです<br>作るのがむずかしかったです</p>
+            <p>５回目に作った作品のハートアイコンです<br>ハートをきれいに作るのがむずかしかったです</p>
          </div>
          <div class="tumb">
             <a href="./img/cashregister.png"  class="gallery" data-group="gallery">
                <img  src="./img/cashregister.png"width="100%" alt="レジ">
             </a>
-            <p>3回目に作った作品のマグカップです<br>作るのがむずかしかったです</p>
+            <p>６回目に作った作品のキャシュレジスターです<br>ボタンの色やレシートの曲がり具合にこだわりました</p>
          </div>
          <div class="tumb">
             <a href="./img/desklight.png"  class="gallery" data-group="gallery">
                <img  src="./img/desklight.png"width="100%" alt="デスクライト">
             </a>
-            <p>3回目に作った作品のマグカップです<br>作るのがむずかしかったです</p>
+            <p>７回目に作った作品のデスクライトです<br>ベジェ曲線の調整が大変でした</p>
          </div>
       </div>
    </div>
@@ -245,7 +318,7 @@
             blender初心者 <br>
             小物をモデリングしています<br>
             <a href="https://www.youtube.com/c/Mdesign_blender">参考サイト</a>
-          </p>  
+          </p>
            </li>
          <li></li>
 
@@ -262,17 +335,17 @@
             var scroll = $(window).scrollTop();//スクロール値を取得
             var windowHeight = $(window).height();//画面の高さを取得
             var childs = $(this).children();	//子要素を取得
-  
+
             if (scroll >= elemPos - windowHeight && !$(parent).hasClass("play")) {//指定領域内にスクロールが入ったらまた親要素にクラスplayがなければ
               $(childs).each(function () {
-  
+
                 if (!$(this).hasClass("fadeleft")) {//アニメーションのクラス名が指定されているかどうかをチェック
-  
+
                   $(parent).addClass("play");	//親要素にクラス名playを追加
                   $(this).css("animation-delay", value + "s");//アニメーション遅延のCSS animation-delayを追加し
                   $(this).addClass("fadeleft");//アニメーションのクラス名を追加
                   value = value + time;//delay時間を増加させる
-  
+
                   //全ての処理を終わったらplayを外す
                   var index = $(childs).index(this);
                   if ((childs.length - 1) == index) {
@@ -286,12 +359,12 @@
             }
           })
         }
-  
+
         // 画面をスクロールをしたら動かしたい場合の記述
         $(window).scroll(function () {
           delayScrollAnime();/* アニメーション用の関数を呼ぶ*/
         });// ここまで画面をスクロールをしたら動かしたい場合の記述
-  
+
         // 画面が読み込まれたらすぐに動かしたい場合の記述
         $(window).on('load', function () {
           delayScrollAnime();/* アニメーション用の関数を呼ぶ*/
@@ -307,7 +380,7 @@
             $('html').css('overflow-y','hidden');
          },
          after_close:function(){
-            $('html').css('overflow-y','scroll'); 
+            $('html').css('overflow-y','scroll');
          }
       });
     </script>
